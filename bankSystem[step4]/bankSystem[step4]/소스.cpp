@@ -19,7 +19,6 @@ public:
 		this->cusName = new char[MAX_LEN];
 		strcpy_s(this->cusName, MAX_LEN, cusName);
 
-		//이거 다 깊은복사로 만들어야함
 	}
 
 	Account(Account& copy_user)	//복사 생성자
