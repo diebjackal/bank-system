@@ -12,26 +12,26 @@ protected:
 	char* cusName;
 
 public:
-	Account(int accID, int balance, int RRN, char* cusName)	//»ı¼ºÀÚ
+	Account(int accID, int balance, int RRN, char* cusName)	//ìƒì„±ì
 		: accID(accID), RRN(RRN)
 	{
 		this->balance = balance;
 		this->cusName = new char[MAX_LEN];
 		strcpy_s(this->cusName, MAX_LEN, cusName);
 
-		//ÀÌ°Å ´Ù ±íÀºº¹»ç·Î ¸¸µé¾î¾ßÇÔ
+		//ì´ê±° ë‹¤ ê¹Šì€ë³µì‚¬ë¡œ ë§Œë“¤ì–´ì•¼í•¨
 	}
 
-	Account(Account& copy_user)	//º¹»ç »ı¼ºÀÚ
+	Account(Account& copy_user)	//ë³µì‚¬ ìƒì„±ì
 		: accID(copy_user.accID), RRN(copy_user.RRN)
 	{
-		cout << "º¹»ç »ı¼ºÀÚ È£Ãâ" << endl;
+		cout << "ë³µì‚¬ ìƒì„±ì í˜¸ì¶œ" << endl;
 		this->balance = copy_user.balance;
 		this->cusName = new char[MAX_LEN];
 		strcpy_s(this->cusName, MAX_LEN, copy_user.cusName);
 	}
 
-	~Account()	//¼Ò¸êÀÚ
+	~Account()	//ì†Œë©¸ì
 	{
 		delete[] cusName;
 	}
@@ -42,8 +42,8 @@ public:
 	}
 
 	virtual int Interest(int money) {
-		int interest = (this->balance + money) * 0.01;	//ÀÌÀÚ
-		cout << "ÀÌÀÚ¾× : " << interest << endl << endl;
+		int interest = (this->balance + money) * 0.01;	//ì´ì
+		cout << "ì´ìì•¡ : " << interest << endl << endl;
 		return interest;
 	}
 
@@ -61,10 +61,10 @@ public:
 	}
 
 	virtual void Print_Account_Information() {
-		cout << "º¸Åë °èÁÂ" << endl;
-		cout << "°èÁÂID: " << accID << endl;
-		cout << "ÀÌ  ¸§: " << cusName << endl;
-		cout << "ÀÜ  ¾×: " << balance << endl << endl;
+		cout << "ë³´í†µ ê³„ì¢Œ" << endl;
+		cout << "ê³„ì¢ŒID: " << accID << endl;
+		cout << "ì´  ë¦„: " << cusName << endl;
+		cout << "ì”  ì•¡: " << balance << endl << endl;
 	}
 
 	bool Check_SSN(int RRN) const {
@@ -95,16 +95,16 @@ public:
 	}
 
 	virtual int Interest(int money) {
-		int interest = (this->balance + money) * 0.02;	//ÀÌÀÚ
-		cout << "ÀÌÀÚ¾× : " << interest << endl << endl;
+		int interest = (this->balance + money) * 0.02;	//ì´ì
+		cout << "ì´ìì•¡ : " << interest << endl << endl;
 		return interest;
 	}
 
 	virtual void Print_Account_Information() {
-		cout << "¿¹±İ °èÁÂ" << endl;
-		cout << "°èÁÂID: " << accID << endl;
-		cout << "ÀÌ  ¸§: " << cusName << endl;
-		cout << "ÀÜ  ¾×: " << balance << endl << endl;
+		cout << "ì˜ˆê¸ˆ ê³„ì¢Œ" << endl;
+		cout << "ê³„ì¢ŒID: " << accID << endl;
+		cout << "ì´  ë¦„: " << cusName << endl;
+		cout << "ì”  ì•¡: " << balance << endl << endl;
 	}
 };
 
@@ -131,9 +131,9 @@ public:
 
 	void Account_Open() {
 		int account_select;
-		cout << "°³¼³ÇÒ °èÁÂ¸¦ ¼±ÅÃÇØ ÁÖ¼¼¿ä." << endl;
-		cout << "1. º¸Åë °èÁÂ " << endl;
-		cout << "2. ¿¹±İ °èÁÂ" << endl;
+		cout << "ê°œì„¤í•  ê³„ì¢Œë¥¼ ì„ íƒí•´ ì£¼ì„¸ìš”." << endl;
+		cout << "1. ë³´í†µ ê³„ì¢Œ " << endl;
+		cout << "2. ì˜ˆê¸ˆ ê³„ì¢Œ" << endl;
 		cin >> account_select;
 
 		if (account_select == 1) {
@@ -143,7 +143,7 @@ public:
 			Deposit_Account_Open();
 		}
 		else {
-			cout << "º¸Åë °èÁÂ¿Í ¿¹±İ°èÁÂ Áß ÇÏ³ª¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä." << endl << endl;
+			cout << "ë³´í†µ ê³„ì¢Œì™€ ì˜ˆê¸ˆê³„ì¢Œ ì¤‘ í•˜ë‚˜ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”." << endl << endl;
 		}
 	}
 
@@ -154,34 +154,34 @@ public:
 		char cusnName[MAX_LEN];
 
 		if (Member_Number == MAX_MEMBER) {
-			cout << "°¡ÀÔ ÀÎ¿øÀÌ ÃÊ°úµÇ¾ú½À´Ï´Ù.\n" << endl;
+			cout << "ê°€ì… ì¸ì›ì´ ì´ˆê³¼ë˜ì—ˆìŠµë‹ˆë‹¤.\n" << endl;
 			return;
 		}
 
-		cout << "[°èÁÂ°³¼³]" << endl;
-		cout << "°èÁÂID: ";
+		cout << "[ê³„ì¢Œê°œì„¤]" << endl;
+		cout << "ê³„ì¢ŒID: ";
 		cin >> accID;
 
-		cout << "ÀÌ  ¸§: ";
+		cout << "ì´  ë¦„: ";
 		cin >> cusnName;
 
-		cout << "ÁÖ¹Îµî·Ï¹øÈ£: ";
+		cout << "ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸: ";
 		cin >> RRN;
 
-		cout << "ÀÔ±İ¾×: ";
+		cout << "ì…ê¸ˆì•¡: ";
 		cin >> balance;
 		if (balance < 10) {
-			cout << "°èÁÂ°³¼³ ½Ã¿¡´Â 10¿øÀÌ»óÀÇ ÀÔ±İ¾×À» ³Ö¾î¾ß ÇÕ´Ï´Ù.\n" << endl << endl;
+			cout << "ê³„ì¢Œê°œì„¤ ì‹œì—ëŠ” 10ì›ì´ìƒì˜ ì…ê¸ˆì•¡ì„ ë„£ì–´ì•¼ í•©ë‹ˆë‹¤.\n" << endl << endl;
 			return;
 		}
 
 		for (int i = 0; i < Member_Number; i++) {
 			if (Acc_Member[i]->Check_SSN(RRN)) {
-				cout << "ÀÌ¹Ì °¡ÀÔ µÇ¾ú½À´Ï´Ù." << endl << endl;
+				cout << "ì´ë¯¸ ê°€ì… ë˜ì—ˆìŠµë‹ˆë‹¤." << endl << endl;
 				return;
 			}
 			if (Acc_Member[i]->Check_AccID(accID)) {
-				cout << "ÀÌ¹Ì ÀÖ´Â °èÁÂID ÀÔ´Ï´Ù." << endl << endl;
+				cout << "ì´ë¯¸ ìˆëŠ” ê³„ì¢ŒID ì…ë‹ˆë‹¤." << endl << endl;
 				return;
 			}
 		}
@@ -197,8 +197,8 @@ public:
 		int deposit_accID;
 		int save_memberNumber = -1;
 
-		cout << "º¸Åë °èÁÂÀÇ °èÁÂ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä." << endl;
-		cout << "º¸Åë °èÁÂ ID : ";
+		cout << "ë³´í†µ ê³„ì¢Œì˜ ê³„ì¢Œë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”." << endl;
+		cout << "ë³´í†µ ê³„ì¢Œ ID : ";
 		cin >> accID;
 
 		for (int i = 0; i < Member_Number; i++) {
@@ -210,18 +210,18 @@ public:
 		if (save_memberNumber == -1)
 		{
 			cout << endl;
-			cout << "º¸Åë °èÁÂ °³¼³ ÈÄ ¿¹±İ °èÁÂ¸¦ °³¼³ÇÒ ¼ö ÀÖ½À´Ï´Ù." << endl;
-			cout << "º¸Åë °èÁÂ¸¦ ¸ÕÀú ¸¸µé°í ½ÃµµÇÏ¿© ÁÖ½Ê½Ã¿À." << endl << endl;
+			cout << "ë³´í†µ ê³„ì¢Œ ê°œì„¤ í›„ ì˜ˆê¸ˆ ê³„ì¢Œë¥¼ ê°œì„¤í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤." << endl;
+			cout << "ë³´í†µ ê³„ì¢Œë¥¼ ë¨¼ì € ë§Œë“¤ê³  ì‹œë„í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤." << endl << endl;
 			return;
 		}
 
-		cout << "¿¹±İ °èÁÂ¿¡¼­ »ç¿ëÇÒ °èÁÂ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä." << endl;
-		cout << "¿¹±İ °èÁÂ ID : ";
+		cout << "ì˜ˆê¸ˆ ê³„ì¢Œì—ì„œ ì‚¬ìš©í•  ê³„ì¢Œë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”." << endl;
+		cout << "ì˜ˆê¸ˆ ê³„ì¢Œ ID : ";
 		cin >> deposit_accID;
 
 		for (int i = 0; i < Member_Number; i++) {
 			if (Acc_Member[i]->Check_AccID(deposit_accID)) {
-				cout << "ÀÌ¹Ì ÀÖ´Â °èÁÂID ÀÔ´Ï´Ù." << endl << endl;
+				cout << "ì´ë¯¸ ìˆëŠ” ê³„ì¢ŒID ì…ë‹ˆë‹¤." << endl << endl;
 				return;
 			}
 		}
@@ -236,21 +236,20 @@ public:
 		int Deposit_Amount;
 		int Check_AccID;
 
-		cout << "[ÀÔ    ±İ]" << endl;
-		cout << "°èÁÂID: ";
+		cout << "[ì…    ê¸ˆ]" << endl;
+		cout << "ê³„ì¢ŒID: ";
 		cin >> Check_AccID;
-		cout << "ÀÔ±İ¾×: ";
+		cout << "ì…ê¸ˆì•¡: ";
 		cin >> Deposit_Amount;
 
 		for (int i = 0; i < Member_Number; i++) {
 			if (Acc_Member[i]->Check_AccID(Check_AccID)) {
-				cout << "a" << endl;
 				Acc_Member[i]->Deposit(Deposit_Amount);
 				return;
 			}
 		}
 
-		cout << "À¯È¿ÇÏÁö ¾ÊÀº ID ÀÔ´Ï´Ù." << endl << endl;
+		cout << "ìœ íš¨í•˜ì§€ ì•Šì€ ID ì…ë‹ˆë‹¤." << endl << endl;
 		cout << endl;
 	}
 
@@ -258,21 +257,21 @@ public:
 		int Withdrawal_Amount;
 		int Check_AccID;
 
-		cout << "[Ãâ    ±İ]" << endl;
-		cout << "°èÁÂID: ";
+		cout << "[ì¶œ    ê¸ˆ]" << endl;
+		cout << "ê³„ì¢ŒID: ";
 		cin >> Check_AccID;
-		cout << "Ãâ±İ¾×: ";
+		cout << "ì¶œê¸ˆì•¡: ";
 		cin >> Withdrawal_Amount;
 
 		for (int i = 0; i < Member_Number; i++) {
 			if (Acc_Member[i]->Check_AccID(Check_AccID)) {
 				if (!Acc_Member[i]->Withdraw(Withdrawal_Amount)) {
-					cout << "Ãâ±İ ±İ¾×ÀÌ ÇöÀç ÀÜ¾×º¸´Ù ¸¹½À´Ï´Ù." << endl << endl;
+					cout << "ì¶œê¸ˆ ê¸ˆì•¡ì´ í˜„ì¬ ì”ì•¡ë³´ë‹¤ ë§ìŠµë‹ˆë‹¤." << endl << endl;
 				}
 				return;
 			}
 		}
-		cout << "À¯È¿ÇÏÁö ¾ÊÀº ID ÀÔ´Ï´Ù." << endl << endl;
+		cout << "ìœ íš¨í•˜ì§€ ì•Šì€ ID ì…ë‹ˆë‹¤." << endl << endl;
 		cout << endl;
 	}
 
@@ -290,12 +289,12 @@ int main(void) {
 
 	while (true) {
 		cout << "-----Menu-----" << endl
-			<< "1. °èÁÂ°³¼³" << endl
-			<< "2. ÀÔ    ±İ" << endl
-			<< "3. Ãâ    ±İ" << endl
-			<< "4. °èÁÂÁ¤º¸ ÀüÃ¼ Ãâ·Â" << endl
-			<< "5. ÇÁ·Î±×·¥ Á¾·á" << endl;
-		cout << "¼±ÅÃ: ";
+			<< "1. ê³„ì¢Œê°œì„¤" << endl
+			<< "2. ì…    ê¸ˆ" << endl
+			<< "3. ì¶œ    ê¸ˆ" << endl
+			<< "4. ê³„ì¢Œì •ë³´ ì „ì²´ ì¶œë ¥" << endl
+			<< "5. í”„ë¡œê·¸ë¨ ì¢…ë£Œ" << endl;
+		cout << "ì„ íƒ: ";
 		cin >> select;
 		cout << endl;
 
